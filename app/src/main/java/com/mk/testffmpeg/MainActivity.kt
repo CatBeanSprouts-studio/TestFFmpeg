@@ -5,6 +5,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
@@ -34,12 +35,12 @@ class MainActivity : ComponentActivity() {
      * A native method that is implemented by the 'testffmpeg' native library,
      * which is packaged with this application.
      */
-    external fun stringFromJNI(filename: String, cacheDir: String): String
+    private external fun stringFromJNI(filename: String, cacheDir: String): String
 
     companion object {
         // Used to load the 'testffmpeg' library on application startup.
         init {
-            // System.loadLibrary("testffmpeg")
+            System.loadLibrary("testffmpeg")
         }
     }
 }

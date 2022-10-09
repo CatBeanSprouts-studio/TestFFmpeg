@@ -6,11 +6,7 @@ extern "C" {
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
 #include <android/log.h>
-
-#define TAG "JNITag"
-#define info(...)    __android_log_print(ANDROID_LOG_INFO, TAG, __VA_ARGS__);
-#define debug(...)   __android_log_print(ANDROID_LOG_DEBUG, TAG, __VA_ARGS__);
-#define error(...)   __android_log_print(ANDROID_LOG_ERROR, TAG, __VA_ARGS__);
+#include "z_default/log.h"
 
 int startFuc(const char *filename, const char *cacheDir);
 static int decode_packet(AVPacket *pPacket, AVCodecContext *pCodecContext, AVFrame *pFrame,

@@ -35,7 +35,7 @@ set_target_properties(
         ${DIR}/libavfilter.so
 )
 
-#  添加封装格式处理库
+# 添加封装格式处理库
 add_library(avformat
         SHARED
         IMPORTED)
@@ -45,7 +45,7 @@ set_target_properties(
         ${DIR}/libavformat.so
 )
 
-#  添加工具库
+# 添加工具库
 add_library(avutil
         SHARED
         IMPORTED)
@@ -56,7 +56,7 @@ set_target_properties(
 )
 
 
-#  添加音频采样数据格式转换库
+# 添加音频采样数据格式转换库
 add_library(swresample
         SHARED
         IMPORTED)
@@ -66,7 +66,7 @@ set_target_properties(
         ${DIR}/libswresample.so
 )
 
-#  添加音频采样数据格式转换库
+# 添加音频采样数据格式转换库
 add_library(swscale
         SHARED
         IMPORTED)
@@ -75,10 +75,22 @@ set_target_properties(
         PROPERTIES IMPORTED_LOCATION
         ${DIR}/libswscale.so
 )
+
+# 源文件
+include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/a_tutorial
+        ${CMAKE_CURRENT_SOURCE_DIR}/z_default
+)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} MAIN_LIST)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/a_tutorial A_TUTORIAL_LIST)
+
 add_library(
         testffmpeg
         SHARED
-        native-lib.cpp)
+        ${MAIN_LIST}
+        ${A_TUTORIAL_LIST}
+)
 
 find_library(
         log-lib
