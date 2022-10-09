@@ -1,23 +1,33 @@
 package com.mk.testffmpeg
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.mk.testffmpeg.databinding.ActivityMainBinding
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.ui.tooling.preview.Preview
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         val filename = "${externalCacheDir?.absolutePath}/small_bunny_1080p_60fps.mp4"
+        setContent {
+            MessageCard(stringFromJNI(filename, externalCacheDir?.absolutePath ?: ""))
+        }
+    }
 
-        // Example of a call to a native method
-        binding.sampleText.text = stringFromJNI(filename, externalCacheDir?.absolutePath ?: "")
+    @Preview
+    @Composable
+    fun MessageCardProxy() {
+        MessageCard("啦啦啦了")
+    }
+
+
+    @Composable
+    fun MessageCard(content: String) {
+        Text(text = content)
     }
 
     /**
@@ -29,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         // Used to load the 'testffmpeg' library on application startup.
         init {
-            System.loadLibrary("testffmpeg")
+            // System.loadLibrary("testffmpeg")
         }
     }
 }
