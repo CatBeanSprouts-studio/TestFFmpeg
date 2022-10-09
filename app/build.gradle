@@ -54,7 +54,6 @@ android {
 
 dependencies {
     implementation "androidx.core:core-ktx:${rootProject.ext.coreKtx}"
-    implementation "androidx.appcompat:appcompat:${rootProject.ext.appcompat}"
     implementation "com.google.android.material:material:${rootProject.ext.material}"
     implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintlayout}"
     testImplementation "junit:junit:${rootProject.ext.junit}"
