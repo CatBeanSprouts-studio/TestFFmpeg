@@ -5,6 +5,8 @@
 #ifndef TESTFFMPEG_LOG_H
 #define TESTFFMPEG_LOG_H
 
+#include <android/log.h>
+
 #define TAG "JNITag ------> "
 #define info(...)    __android_log_print(ANDROID_LOG_INFO, TAG, __VA_ARGS__);
 #define debug(...)   __android_log_print(ANDROID_LOG_DEBUG, TAG, __VA_ARGS__);

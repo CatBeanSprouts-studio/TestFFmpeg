@@ -66,6 +66,7 @@ android {
     }
 
     ndkVersion = rootProject.ext.ndkVersion
+    namespace 'com.mk.testffmpeg'
 }
 
 dependencies {

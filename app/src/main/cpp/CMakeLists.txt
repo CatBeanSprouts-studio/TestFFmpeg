@@ -10,11 +10,7 @@ project("testffmpeg")
 
 # 头文件位置
 set(LIB_PATH ${PROJECT_SOURCE_DIR}/../../../libs)
-include_directories(${LIB_PATH}/include)
-
-message(${LIB_PATH}/include)
 set(DIR ${LIB_PATH}/${ANDROID_ABI})
-message(${DIR})
 
 # 添加编码库
 add_library(avcodec
@@ -78,6 +74,7 @@ set_target_properties(
 
 # 源文件
 include_directories(
+        ${LIB_PATH}/include
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/a_tutorial
         ${CMAKE_CURRENT_SOURCE_DIR}/z_default
