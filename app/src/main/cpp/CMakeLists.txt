@@ -76,11 +76,11 @@ set_target_properties(
 include_directories(
         ${LIB_PATH}/include
         ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}/a_tutorial
+        ${CMAKE_CURRENT_SOURCE_DIR}/a_oscillator
         ${CMAKE_CURRENT_SOURCE_DIR}/z_default
 )
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} MAIN_LIST)
-aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/a_tutorial A_TUTORIAL_LIST)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/a_oscillator A_TUTORIAL_LIST)
 
 add_library(
         testffmpeg

@@ -1,11 +1,11 @@
 package com.mk.testffmpeg
 
 import android.os.Bundle
+import android.view.View
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
 
         val filename = "${externalCacheDir?.absolutePath}/small_bunny_1080p_60fps.mp4"
         setContent {
-            MessageCard(stringFromJNI(filename, externalCacheDir?.absolutePath ?: ""))
+             MessageCard(stringFromJNI(filename, externalCacheDir?.absolutePath ?: ""))
         }
     }
 
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
     companion object {
         // Used to load the 'testffmpeg' library on application startup.
         init {
-            System.loadLibrary("testffmpeg")
+             System.loadLibrary("testffmpeg")
         }
     }
 }
